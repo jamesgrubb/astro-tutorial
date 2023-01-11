@@ -1,0 +1,21 @@
+---
+import '../../styles/global.css';
+import style from './style.module.css';
+const social = [
+	{ platform: 'Twitter', url: 'https://twitter.com' },
+	{ platform: 'Instagram', url: 'https://instagram.com' },
+	{ platform: 'LinkedIn', url: 'https://linkedin.com' },
+];
+---
+
+<footer class={style.footer}>
+	<ul class={style.ul}>
+		{
+			social.map((item) => (
+				<li>
+					<a href={item.url}>{item.platform}</a>
+				</li>
+			))
+		}
+	</ul>
+</footer>

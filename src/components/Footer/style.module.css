@@ -1,0 +1,15 @@
+.footer {
+	margin-inline: max(0px, calc((100% - 60rem) / 2));
+	padding: var(--size-6);
+	background-color: var(--indigo-3);
+	display: grid;
+	place-items: center;
+}
+
+.ul {
+	display: grid;
+	background-color: var(--indigo-5);
+	gap: var(--size-3);
+	grid-auto-flow: column;
+	align-items: start;
+}

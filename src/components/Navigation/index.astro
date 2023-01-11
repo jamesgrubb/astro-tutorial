@@ -1,4 +1,5 @@
 ---
+import style from './style.module.css';
 const navItems = [
 	{ path: '/', name: 'Home' },
 	{ path: '/about/', name: 'About' },
@@ -6,4 +7,10 @@ const navItems = [
 ];
 ---
 
-{navItems.map((item) => <a href={item.path}>{item.name}</a>)}
+{
+	navItems.map((item) => (
+		<a class={style.link} href={item.path}>
+			{item.name}
+		</a>
+	))
+}
