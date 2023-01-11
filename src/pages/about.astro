@@ -1,4 +1,14 @@
 ---
+import '../styles/global.css';
+const pageTitle = 'About Me and learning';
+const identity = {
+	firstName: 'Sarah',
+	country: 'Canada',
+	occupation: 'Technical Writer',
+	hobbies: ['wrting', 'photography', 'skiing'],
+};
+const skills = ['HTML', 'CSS', 'Javascript'];
+const gradient = 'linear-gradient(270deg, aquamarine, red)';
 ---
 
 <html lang='en'>
@@ -7,7 +17,7 @@
 		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 		<meta name='viewport' content='width=device-width' />
 		<meta name='generator' content={Astro.generator} />
-		<title>About</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
 		<nav>
@@ -15,11 +25,43 @@
 			<a href='/about/'>About</a>
 			<a href='/blog'>Blog</a>
 		</nav>
-		<h1>About Me</h1>
+		<h1>{pageTitle}</h1>
 		<h2>...and my new Astro site</h2>
 		<p>
 			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt,
 			alias!
 		</p>
+		<p>Here are a few details about me</p>
+		<ul>
+			<li>My name is {identity.firstName}</li>
+			<li>
+				I live in {identity.country} and I work as a {
+					identity.occupation
+				}
+			</li>
+
+			{identity.hobbies.length <= 1 && <li>{identity.hobbies[0]}</li>}
+			{
+				identity.hobbies.length >= 2 && (
+					<ul>
+						{identity.hobbies.map((hobbie) => (
+							<li>{hobbie}</li>
+						))}
+					</ul>
+				)
+			}
+		</ul>
 	</body>
 </html>
+<style define:vars={{ gradient }}>
+	:root {
+		--grad: linear-gradient(90deg, teal, blue);
+	}
+	h1 {
+		background-image: var(--grad);
+		color: black;
+		-webkit-text-fill-color: transparent;
+		-webkit-background-clip: text;
+		-webkit-box-decoration-break: clone;
+	}
+</style>
